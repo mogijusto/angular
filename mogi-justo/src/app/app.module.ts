@@ -9,6 +9,10 @@ import { AlertModule } from 'ngx-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 
+import { HttpClientModule } from '@angular/common/http';
+import { TesteService } from './teste.service';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,9 +23,12 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule,
     AlertModule.forRoot(),
     BrowserAnimationsModule,
+    HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+    TesteService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

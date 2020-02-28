@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Usuario } from './model/form.model';
+import { TesteService } from '../teste.service';
 
 @Component({
   selector: 'app-form',
@@ -10,10 +11,15 @@ export class FormComponent implements OnInit {
 
   usuario: Usuario;
 
-  constructor() { }
+  constructor(private service: TesteService) { }
 
   ngOnInit(): void {
     this.usuario = new Usuario();
+    this.service.getTeste().subscribe(data =>{
+      console.log(data);
+    }, error => {
+      console.log(error);
+    });
   }
 
   btnSalvar(): void {
