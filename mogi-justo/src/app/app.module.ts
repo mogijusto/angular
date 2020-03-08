@@ -9,6 +9,10 @@ import { FormComponent } from './form/form.component';
 
 
 
+import { HttpClientModule } from '@angular/common/http';
+import { TesteService } from './teste.service';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,8 +24,11 @@ import { FormComponent } from './form/form.component';
     BrowserAnimationsModule,
     FormsModule,
     AppRoutingModule
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    TesteService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
