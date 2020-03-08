@@ -23,7 +23,7 @@ import { TesteService } from './teste.service';
     AlertModule.forRoot(),
     BrowserAnimationsModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
     HttpClientModule
   ],
   providers: [
