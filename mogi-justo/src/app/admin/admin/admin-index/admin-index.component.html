@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="col-md-12">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">IP</th>
+                    <th scope="col">Data de Acesso</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let ip of IPs; let num = index">
+                    <th scope="row">{{ num + 1 }}</th>
+                    <td>{{ ip.numeroIP }}</td>
+                    <td>{{ ip.date.toLocaleDateString() }}</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>

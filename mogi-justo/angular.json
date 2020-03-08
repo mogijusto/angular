@@ -129,5 +129,8 @@
       }
     }
   },
-  "defaultProject": "mogi-justo"
+  "defaultProject": "mogi-justo",
+  "cli": {
+    "analytics": false
+  }
 }
