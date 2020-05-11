@@ -6,17 +6,21 @@ import { AlertModule } from 'ngx-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormComponent } from './form/form.component';
-
+import { ChartsModule } from 'ng2-charts';
 
 
 import { HttpClientModule } from '@angular/common/http';
 import { TesteService } from './teste.service';
+import { BarChartComponent } from './bar-chart/bar-chart.component';
+import { MainComponent } from './main/main.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    FormComponent
+    FormComponent,
+    BarChartComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +28,8 @@ import { TesteService } from './teste.service';
     BrowserAnimationsModule,
     FormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ChartsModule
   ],
   providers: [
     TesteService
