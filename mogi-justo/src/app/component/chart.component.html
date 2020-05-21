@@ -1,0 +1,21 @@
+<input name="options" ng-control="options" type="radio" [value]="'pie'"  [(ngModel)]="tipo" (change)="mudarGrafico()" >Pizza<br/> 
+
+<input name="options" ng-control="options" type="radio" [value]="'bar'" [(ngModel)]="tipo" (change)="mudarGrafico()">Barra<br/>
+
+<input name="options" ng-control="options" type="radio" [value]="'horizontalBar'" [(ngModel)]="tipo" (change)="mudarGrafico()">horizontalBar<br/>
+
+<input name="options" ng-control="options" type="radio" [value]="'radar'" [(ngModel)]="tipo" (change)="mudarGrafico()">radar<br/>
+
+<input name="options" ng-control="options" type="radio" [value]="'doughnut'" [(ngModel)]="tipo" (change)="mudarGrafico()">doughnut<br/>
+
+
+<div class="chart-wrapper">
+    <canvas baseChart 
+    [datasets]="barChartData"
+    [labels]="barChartLabels"
+    [options]="barChartOptions"
+    [plugins]="barChartPlugins"
+    [legend]="barChartLegend"
+    [chartType]="barChartType">
+  </canvas>
+</div>

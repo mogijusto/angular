@@ -1,5 +1,15 @@
 <div class="container">
-    <div class="col-md-12">
-      <app-bar-chart></app-bar-chart>
-    </div>
+  <div class="col-md-12">
+    <app-filtro [option]="optionFiltro" [filtro]="filtro"></app-filtro>
+    <i class="fa fa-bar-chart" aria-hidden="true"></i>
+    <i class="fa fa-pie-chart" aria-hidden="true"></i>
+    <fa-icon [icon]="iconPie" transform="shrink-9 right-4"></fa-icon><br>
+    <button type="button" class="btn btn-default">
+      <fa-icon [icon]="iconPie"></fa-icon>
+    </button>
+    <button type="button" class="btn btn-default" disabled="true">
+      <fa-icon [icon]="iconBar"></fa-icon>
+    </button>
+    <app-chart [barChartOptions]="optionChart" [labelData]="labelData"></app-chart>
+  </div>
 </div>

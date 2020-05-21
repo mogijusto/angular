@@ -7,20 +7,23 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormComponent } from './form/form.component';
 import { ChartsModule } from 'ng2-charts';
-
+import { ChartComponent } from './component/chart.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { TesteService } from './teste.service';
-import { BarChartComponent } from './bar-chart/bar-chart.component';
 import { MainComponent } from './main/main.component';
+import { Ng5SliderModule } from 'ng5-slider';
+import { FiltroComponent } from './filtro/filtro.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     FormComponent,
-    BarChartComponent,
-    MainComponent
+    ChartComponent,
+    MainComponent,
+    FiltroComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,7 +32,9 @@ import { MainComponent } from './main/main.component';
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
-    ChartsModule
+    Ng5SliderModule,
+    ChartsModule,
+    FontAwesomeModule
   ],
   providers: [
     TesteService
