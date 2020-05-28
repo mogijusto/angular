@@ -1,0 +1,5 @@
+<label>Cargo:</label>
+<select class="form-control">
+    <option [value]="undefined">Selecione um cargo</option>
+    <option *ngFor="let cargo of cargos" [value]="cargo.nome">{{ cargo.nome }} </option>
+</select>

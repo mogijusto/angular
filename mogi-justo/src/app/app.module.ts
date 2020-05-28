@@ -15,6 +15,7 @@ import { MainComponent } from './main/main.component';
 import { Ng5SliderModule } from 'ng5-slider';
 import { FiltroComponent } from './filtro/filtro.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { CargoComponent } from './component/cargo/cargo.component';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     ChartComponent,
     MainComponent,
     FiltroComponent,
+    CargoComponent,
   ],
   imports: [
     BrowserModule,
