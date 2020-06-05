@@ -14,7 +14,6 @@ export class FiltroComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.option);
   }
 
 }

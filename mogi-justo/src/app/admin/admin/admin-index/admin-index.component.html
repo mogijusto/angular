@@ -11,8 +11,8 @@
             <tbody>
                 <tr *ngFor="let ip of IPs; let num = index">
                     <th scope="row">{{ num + 1 }}</th>
-                    <td>{{ ip.numeroIP }}</td>
-                    <td>{{ ip.date.toLocaleDateString() }}</td>
+                    <td>{{ ip.hostname }}</td>
+                    <td>{{ format(ip.acesso) }}</td>
                 </tr>
             </tbody>
         </table>

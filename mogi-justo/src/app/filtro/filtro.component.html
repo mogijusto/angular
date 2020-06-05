@@ -1,11 +1,24 @@
 <div class="container">
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-6">
+            <label>Nome:</label>
+            <input type="text" class="form-control" placeholder="Buscar por nome">
+        </div>
+        <div class="col-md-12" #esconder [hidden]="true">
             <div class="form-group">
                 <label>Salário:</label>
                 <ng5-slider [(value)]="filtro.salarioMinimo" [(highValue)]="filtro.salarioMaximo" [options]="option">
                 </ng5-slider>
-                <input type="text" class="form-control">
+            </div>
+            <div class="col-md-6">
+                <app-cargo></app-cargo>
             </div>
         </div>
+        <div class="col-md-6" style="margin-top: 20px;">
+            <button type="button" class="btn btn-success col-md-6">Pesquisar</button>
+        </div>
+        <div class="col-md-12">
+            <p style="cursor: pointer;" (click)="esconder.hidden = !esconder.hidden ">{{ esconder.hidden ? 'Mostrar mais': 'Esconder' }}</p>
+        </div>
     </div>
+</div>

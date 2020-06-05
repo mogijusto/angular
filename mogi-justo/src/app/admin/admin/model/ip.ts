@@ -1,4 +1,5 @@
 export class IP {
-    numeroIP: string;
-    date: Date;
+    ipNome: string;
+    hostname: string;
+    acesso: Date;
 }
