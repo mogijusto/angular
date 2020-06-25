@@ -9,6 +9,7 @@ import { ServidorService } from './_shared/servidor.service';
 import { faChartBar, faChartPie } from '@fortawesome/free-solid-svg-icons';
 import { IpService } from '../admin/admin/_shared/ip.service';
 import { IP } from '../admin/admin/model/ip';
+import { Servidor } from '../model/servidor';
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
@@ -31,7 +32,13 @@ export class MainComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.labelData = new LabelData(this.servidorService.getServidores(), 'nome', 'rendimentos');
+
+    this.servidorService.getServidores().subscribe(data => {
+      const servidores = data.map(servidor => Servidor.anyToServidor(servidor));
+      this.labelData = new LabelData(servidores, 'nome', 'rendimentos');
+    }, error => {
+      console.log(error);
+    });
     if (!localStorage.getItem('ip')) {
       this.saveIp();
     }

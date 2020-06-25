@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 import { ChartDataSets, ChartOptions, ChartType } from 'chart.js';
 import { Label } from 'ng2-charts';
 import { Color } from '../util/graph/color';
@@ -9,7 +9,8 @@ import { LabelData } from '../util/graph/label-data';
   templateUrl: './chart.component.html',
   styleUrls: ['./chart.component.scss']
 })
-export class ChartComponent implements OnInit {
+export class ChartComponent implements OnInit, OnChanges {
+
 
   @Input() barChartOptions: ChartOptions;
   tipo: ChartType;
@@ -22,11 +23,21 @@ export class ChartComponent implements OnInit {
   @Input() labelData: LabelData;
 
 
-
+  ngOnChanges(changes: SimpleChanges): void {
+    if (this.labelData) {
+      console.log('changes', this.labelData);
+      this.initGrafico();
+    }
+  }
   ngOnInit(): void {
+    if (this.labelData) {
+      this.initGrafico();
+    }
+  }
 
+  initGrafico() {
     this.barChartLabels = this.labelData.getLabels();
-    this.barChartType = 'bar';
+    this.barChartType = 'horizontalBar';
     this.barChartLegend = false;
 
     this.barChartData = [
@@ -39,6 +50,8 @@ export class ChartComponent implements OnInit {
 
       }
     ];
+    this.barChartType = 'horizontalBar';
+
   }
 
   mudarGrafico(): void {
