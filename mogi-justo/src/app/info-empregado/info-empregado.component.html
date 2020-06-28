@@ -1,0 +1,101 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <span class="d-block p-2 bg-primary text-white">
+                <h2 class="text-center">
+                    {{ empregado.nome | titlecase }}
+                </h2>
+            </span>
+            <div class="row">
+                <div class="col-md-6">
+                    <p>
+                        <strong>Cargo:</strong> {{ empregado.nome | titlecase }}
+                    </p>
+                </div>
+                <div class="col-md-6">
+                    <p>
+                        <strong>Regime:</strong> {{ empregado.regime | titlecase }}
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 list-group">
+            <h4 class="list-group-item-success list-group-item">Rendimentos</h4>
+            <div *ngFor="let rendimento of empregado.rendimentos">
+                <div class="list-group-item" style="margin-top: -9px;">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <strong>
+                                {{ rendimento.nome | titlecase }}
+                            </strong>
+                        </div>
+                        <div class="col-md-6">
+                            <p class="text-right" style="color: green;">
+                                R$: {{ rendimento.valor }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12 list-group" style="margin-top: 10px;">
+            <h4 class="list-group-item-danger list-group-item">Descontos</h4>
+            <div *ngFor="let desconto of empregado.descontos">
+                <div class="list-group-item" style="margin-top: -9px;">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <strong>
+                                {{ desconto.nome | titlecase }}
+                            </strong>
+                        </div>
+                        <div class="col-md-6">
+                            <p class="text-right" style="color: red;">
+                                R$: {{ desconto.valor }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 list-group" style="margin-top: 10px;">
+            <h4 class="list-group-item-primary list-group-item">Outros</h4>
+            <div *ngFor="let outro of empregado.outros">
+                <div class="list-group-item" style="margin-top: -9px;">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <strong>
+                                {{ outro.nome | titlecase }}
+                            </strong>
+                        </div>
+                        <div class="col-md-6">
+                            <p class="text-right">
+                                R$: {{ outro.valor }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 list-group" style="margin-top: 10px;">
+            <h4 class="list-group-item-secondary list-group-item">Totais</h4>
+            <div *ngFor="let total of empregado.totais">
+                <div class="list-group-item" style="margin-top: -9px;">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <strong>
+                                {{ total.nome | titlecase }}
+                            </strong>
+                        </div>
+                        <div class="col-md-6">
+                            <p class="text-right"
+                                [ngClass]="{'red' : total.nome.toLowerCase().includes('descontos'), 'green': total.nome.toLowerCase().includes('vencim')}">
+                                R$: {{ total.valor }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,15 +1,15 @@
-<input name="options" ng-control="options" type="radio" [value]="'pie'"  [(ngModel)]="tipo" (change)="mudarGrafico()" >Pizza<br/> 
+<input name="options" ng-control="options" type="radio" [value]="'pie'"  [(ngModel)]="tipo" (change)="mudarGrafico()" >Pizza
 
-<input name="options" ng-control="options" type="radio" [value]="'bar'" [(ngModel)]="tipo" (change)="mudarGrafico()">Barra<br/>
+<input name="options" ng-control="options" type="radio" [value]="'bar'" [(ngModel)]="tipo" (change)="mudarGrafico()">Barra
 
-<input name="options" ng-control="options" type="radio" [value]="'horizontalBar'" [(ngModel)]="tipo" (change)="mudarGrafico()">horizontalBar<br/>
+<input name="options" ng-control="options" type="radio" [value]="'horizontalBar'" [(ngModel)]="tipo" (change)="mudarGrafico()">horizontalBar
 
-<input name="options" ng-control="options" type="radio" [value]="'radar'" [(ngModel)]="tipo" (change)="mudarGrafico()">radar<br/>
+<input name="options" ng-control="options" type="radio" [value]="'radar'" [(ngModel)]="tipo" (change)="mudarGrafico()">radar
 
-<input name="options" ng-control="options" type="radio" [value]="'doughnut'" [(ngModel)]="tipo" (change)="mudarGrafico()">doughnut<br/>
+<input name="options" ng-control="options" type="radio" [value]="'doughnut'" [(ngModel)]="tipo" (change)="mudarGrafico()">doughnut
 
 
-<div class="chart-wrapper">
+<div class="chart-wrapper" *ngIf="labelData">
     <canvas baseChart 
     [datasets]="barChartData"
     [labels]="barChartLabels"
