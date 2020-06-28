@@ -10,6 +10,7 @@ import { faChartBar, faChartPie } from '@fortawesome/free-solid-svg-icons';
 import { IpService } from '../admin/admin/_shared/ip.service';
 import { IP } from '../admin/admin/model/ip';
 import { Servidor } from '../model/servidor';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
@@ -23,29 +24,26 @@ export class MainComponent implements OnInit {
 
   iconPie = faChartBar;
   iconBar = faChartPie;
-
+  public servidores: Servidor[] = [];
   ip: IP;
 
   constructor(
     private readonly servidorService: ServidorService,
     private readonly ipService: IpService,
+    private readonly router: Router
   ) { }
 
   ngOnInit(): void {
 
     this.servidorService.getServidores().subscribe(data => {
-      const servidores = data.map(servidor => Servidor.anyToServidor(servidor));
-      this.labelData = new LabelData(servidores, 'nome', 'rendimentos');
+      this.servidores = data.map(servidor => Servidor.anyToServidor(servidor));
+      this.labelData = new LabelData(this.servidores, 'nome', 'rendimentos');
     }, error => {
       console.log(error);
     });
     if (!localStorage.getItem('ip')) {
       this.saveIp();
     }
-    /*
-    <i class="fa fa-bar-chart" aria-hidden="true"></i>
-      <i class="fa fa-pie-chart" aria-hidden="true"></i>
-    */
   }
   saveIp(): void {
     this.ipService.getIpLocal().subscribe(data => {
@@ -61,5 +59,9 @@ export class MainComponent implements OnInit {
     }, error => {
       console.log(error);
     });
+  }
+
+  public goRedimento(rgh: number): void {
+    this.router.navigate(['empregado', rgh]);
   }
 }

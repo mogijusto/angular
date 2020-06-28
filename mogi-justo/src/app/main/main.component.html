@@ -11,3 +11,25 @@
     <app-chart [barChartOptions]="optionChart" [labelData]="labelData"></app-chart>
   </div>
 </div>
+<div class="container">
+  <div class="col-md-12">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nome</th>
+          <th scope="col">Cargo</th>
+          <th scope="col">Redimento</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let sevidor of servidores; let i = index">
+          <th scope="row">{{ i + 1 }}</th>
+          <td><a (click)="goRedimento(sevidor.rgf)" style="cursor: pointer; color: blue;">{{ sevidor.nome | titlecase }}</a></td>
+          <td>{{ sevidor.cargo | titlecase }}</td>
+          <td>R$: {{ sevidor.rendimentos?.toLocaleString() }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

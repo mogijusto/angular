@@ -12,11 +12,11 @@ export class AppComponent implements OnInit {
   constructor(private testeService: TesteService) {
   }
   ngOnInit() {
-    this.testeService.getTeste().subscribe(data => {
-      console.log(data);
-    }, error => {
-      console.log(error);
-    });
+    // this.testeService.getTeste().subscribe(data => {
+    //   console.log(data);
+    // }, error => {
+    //   console.log(error);
+    // });
   }
 
 }
