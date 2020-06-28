@@ -2,6 +2,7 @@ import { LoginAdminComponent } from 'src/app/admin/admin/login-admin/login-admin
 import { AdminIndexComponent } from 'src/app/admin/admin/admin-index/admin-index.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { ProjectsComponent } from './projects/projects.component';
 
 const routes: Routes = [
   {
@@ -14,6 +15,10 @@ const routes: Routes = [
       {
         path: 'home',
         component: AdminIndexComponent
+      },
+      {
+        path: 'projects',
+        component: ProjectsComponent
       }
     ]
   }

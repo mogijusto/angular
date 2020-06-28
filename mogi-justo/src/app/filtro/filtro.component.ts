@@ -16,4 +16,9 @@ export class FiltroComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  btnLimpar() { 
+    this.filtro = new Filtro();
+    this.option = new Options();
+  }
+
 }
