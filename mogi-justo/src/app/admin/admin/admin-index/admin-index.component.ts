@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IP } from '../model/ip';
+import { IpService } from '../_shared/ip.service';
 
 @Component({
   selector: 'app-admin-index',
@@ -10,31 +11,20 @@ export class AdminIndexComponent implements OnInit {
 
   IPs: IP[];
 
-  constructor() { }
+  constructor(
+    private readonly ipService: IpService
+  ) { }
 
   ngOnInit(): void {
-    this.IPs = [
-      {
-        numeroIP: '192.168.11.2',
-        date: new Date()
-      },
-      {
-        numeroIP: '192.168.1.2',
-        date: new Date()
-      },
-      {
-        numeroIP: '192.168.8.2',
-        date: new Date()
-      },
-      {
-        numeroIP: '192.168.11.29',
-        date: new Date()
-      },
-      {
-        numeroIP: '192.168.11.772',
-        date: new Date()
-      }
-    ];
+    this.ipService.getAll().subscribe(data => {
+      this.IPs = data;
+    }, error => {
+      console.log(error);
+    });
+
+  }
+  format(data: any | Date): string {
+    return new Date(data).toLocaleString();
   }
 
 }

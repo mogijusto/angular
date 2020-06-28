@@ -1,9 +1,7 @@
 <div class="container">
   <div class="col-md-12">
     <app-filtro [option]="optionFiltro" [filtro]="filtro"></app-filtro>
-    <i class="fa fa-bar-chart" aria-hidden="true"></i>
-    <i class="fa fa-pie-chart" aria-hidden="true"></i>
-    <fa-icon [icon]="iconPie" transform="shrink-9 right-4"></fa-icon><br>
+    <hr>
     <button type="button" class="btn btn-default">
       <fa-icon [icon]="iconPie"></fa-icon>
     </button>
@@ -11,5 +9,27 @@
       <fa-icon [icon]="iconBar"></fa-icon>
     </button>
     <app-chart [barChartOptions]="optionChart" [labelData]="labelData"></app-chart>
+  </div>
+</div>
+<div class="container">
+  <div class="col-md-12">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nome</th>
+          <th scope="col">Cargo</th>
+          <th scope="col">Redimento</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let sevidor of servidores; let i = index">
+          <th scope="row">{{ i + 1 }}</th>
+          <td><a (click)="goRedimento(sevidor.rgf)" style="cursor: pointer; color: blue;">{{ sevidor.nome | titlecase }}</a></td>
+          <td>{{ sevidor.cargo | titlecase }}</td>
+          <td>R$: {{ sevidor.rendimentos?.toLocaleString() }}</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>

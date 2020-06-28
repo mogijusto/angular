@@ -7,30 +7,29 @@ import { headersToString } from 'selenium-webdriver/http';
   providedIn: 'root'
 })
 export class TesteService {
-  private url = 'localhost:8000/mogi/test/1';
+  private url = 'http://localhost:8000/mogi/test/';
   constructor(private readonly http: HttpClient) { }
 
   public getTeste(): Observable<Usuario> {
     const headerDict = {
       'Content-Type': 'application/json',
       'Accept': 'application/json',
-      'Access-Control-Allow-Headers': 'Content-Type',
     }
-    
-    const requestOptions = {                                                                                                                                                                                 
-      headers: new HttpHeaders(headerDict), 
+
+    const requestOptions = {
+      headers: new HttpHeaders(headerDict),
     };
     return this.http.get<Usuario>(this.url, requestOptions);
   }
   public save(usuario: Usuario): Observable<void> {
     const headerDict = {
       'Content-Type': 'application/json',
-      'Accept': 'application/json',
+      Accept: 'application/json',
       'Access-Control-Allow-Headers': 'Content-Type',
-    }
-    
-    const requestOptions = {                                                                                                                                                                                 
-      headers: new HttpHeaders(headerDict), 
+    };
+
+    const requestOptions = {
+      headers: new HttpHeaders(headerDict),
     };
     return this.http.post<void>(this.url, usuario, requestOptions);
   }

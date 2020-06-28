@@ -1,16 +1,17 @@
 import { Injectable } from '@angular/core';
+import { Empregado } from '../model/empregado';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observer, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ServidorService {
+export class EmpregadoService {
 
-  private url = 'http://localhost:8000/mogi/servidores';
-  constructor(private readonly http: HttpClient,) { }
+  private readonly url = 'http://localhost:4200/mogi/v1/empregado';
+  constructor(private readonly httpClient: HttpClient) { }
 
-  getServidores(): Observable<any> {
+  public findOne(rgf: number): Observable<Empregado> {
     const headerDict = {
       'Content-Type': 'application/json',
       Accept: 'application/json',
@@ -20,6 +21,6 @@ export class ServidorService {
     const requestOptions = {
       headers: new HttpHeaders(headerDict),
     };
-    return this.http.get<any>(this.url, requestOptions);
+    return this.httpClient.get<Empregado>(`${this.url}/${rgf}`, requestOptions);
   }
 }

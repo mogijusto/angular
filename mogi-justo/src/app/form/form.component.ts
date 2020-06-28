@@ -23,8 +23,6 @@ export class FormComponent implements OnInit {
   }
 
   btnSalvar(): void {
-    console.log('djsajd');
-    console.log(this.usuario);
   }
 
 }
