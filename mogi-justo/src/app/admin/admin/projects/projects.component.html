@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="col-md-12">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Descrição</th>
+                    <th scope="col">Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let projeto of Projetos">
+                    <td>{{ projeto.nome }}</td>
+                    <td>{{ projeto.descricao }}</td>
+                    <td>{{ projeto.status }}</td>
+                    <td>
+                        <a class="add" title="Add" data-toggle="tooltip"><button type="button" class="btn btn-success" (click)="btnSalvar()">Salvar</button></a>
+                        <a class="edit" title="Edit" data-toggle="tooltip"><button type="button" class="btn btn-warning" (click)="btnEditar()">Editar</button></a>
+                        <a class="delete" title="Delete" data-toggle="tooltip"><button type="button" class="btn btn-danger" (click)="btnExcluir()">Excluir</button></a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
