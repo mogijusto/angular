@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "npx ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -24,6 +24,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.13.0",
     "bootstrap": "^4.4.1",
     "chart.js": "^2.9.3",
+    "express": "^4.17.1",
     "ng2-charts": "^2.3.0",
     "ng5-slider": "^1.2.4",
     "ngx-bootstrap": "^5.3.2",
